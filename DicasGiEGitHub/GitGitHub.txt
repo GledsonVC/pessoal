@@ -1,0 +1,115 @@
+configurar git inicialmente colcando usuário, email e branch main
+git config --global --list
+	mostra as configuração
+
+git config --global user.name "GledsonVC"
+	Cria o nome nas configurações
+	
+git config --global user.email gledsonvc@gmail.com
+	Cria o email nas configurações
+
+git config --global init.defaultBranch main
+	Cria branch padrão main nas configurações
+
+Iniciando comandos
+git init
+	inicia o projeto local 
+
+git status
+	mostra o branch que vc está e os arquivos que não forma comitados
+	
+git add nome_do_arquivo.txt
+	adciona o arquivo no status para comitar
+git add .
+	adciona todos os arquivos para comitar
+
+git rm --cache nome_do_arquivo.txt
+	remove o arquivo no status para comitar
+
+git commit -m "Mensagem a ser colocada sobre o que está comitando"
+	Adciona ao projeto com mensagem definida entre "mensagem"
+
+git commit --amend
+	altera mensagem criada de um ultimo commit para sair ESQ :wq
+
+git log
+	mostra o histórico de comites feito 
+		obs: caso acesse se clicar 'q' ele sairá
+git log --online
+	mostra o histórico de comites condençado
+
+git add . && git commit -m "Mensagem a ser colocada sobre o que está comitando"
+	OBS: colocando dois comandos juntos por intermédio do && 
+		no caso adcionando e comitando
+
+
+git checkout e18e6a2
+	Volta o projeto para o histório de id "e18e6a2"
+git checkout master
+git checkout main
+	Volta de onde estava o seu projeto
+
+Atenção nesse comandos:
+git revert 7f1d947
+	reverte o projeto para o histórico de id "7f1d947"
+		obs ":q" irá sair, deixando descrito em histório essa alteração como revert "Mensagem"
+		com "git log" consegue ver que ele incrementa um novo histórico dessa alteração
+	
+Comando perigoso:
+git reset e18e6a2
+	Volta para o o histórico de ide "e18e6a2" porem preserva arquivos que foram modificados no futuro
+git reset e18e6a2 --hard
+	Volta para o o histórico de ide "e18e6a2" sem preservar histório de arquivo
+
+Arquivo para ignorar quando utiliza "git status"
+.gitignore
+	nome do arquivo que tem que conter na pasta do projeto
+	OBS no conteúdo do arquivo vc pode colocar nome de pastas e arquivos para serem ignorados
+
+git branch
+	lista as branch que vc contem em seu projeto
+	OBS, em * é a branch que está atual
+	
+git branch nomeBranch
+	cria uma nova branch do projeto
+
+git checkout nomeBranch
+	comando tbm utilizado para trocar de branch
+
+git branch -d nomeBranch
+	deleta a branch de nome "nomeBranch"
+		obs só será possível deletar se não houver alterações da branch principal no caso "master" ou "main"
+git branch -D nomeBranch
+	deleta a branch de nome "nomeBranch" não levando em consideração se houve alguma diferença da "master" ou "main"
+
+git merge nomeBranch
+	Uni o que foi feito na branch "nomeBranch" para a branch que vc está atualmente
+		obs ":q" para sair, no caso de mais de uma alteração em uma mesma branch
+	
+OBS merge
+	pode ocorrer de dois branch mecher no mesmo arquivo e dar conflito que terá que ser arrumado
+	apos acerto será necessário "git add . && git commit", nem é necessário comentário ":q" para sair
+
+Gerando chave para poder mandar para o github abra o 
+ssh-keygen -t ed25519 -C "gledsonvc@gmail.com"
+
+
+
+
+git push git@github.com:nomegithub/nome_projeto.git main
+	empurra para o respositório do github na "main" ou em outra "branch" as alterações que foram comitadas em uma primeira vez
+git remote add origin git@github.com:nomegithub/nome_projeto.git 
+	adciona apelido "origin" para não ter que digitar sempre
+git remote -v
+	verifica se está tudo certo tanto para "fetch" baixar arquivos quanto para "push" empurrar arquivos
+git push origin main
+	faz o mesmo que o git push anterior porem com o apelido que foi atribuido
+	
+git clone git@github.com:nomegithub/nome_projeto.git
+	irá clonar o projeto identico ao github
+git clone git@github.com:nomegithub/nome_projeto.git nome_do_projeto
+	irá clonar o projeto tbm porem dando outro nome "nome_do_projeto"
+
+git pull origin main
+	Baixa do repositório github na "main"
+

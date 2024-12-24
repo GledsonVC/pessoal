@@ -1,0 +1,65 @@
+Comandos úteis:
+git init
+	Inicia um novo repositório
+
+git status
+	Verifica o status atual do repositório git
+
+git add .
+	Adciona arquivos atuais ao proximo commit
+
+git add nome_do_arquivo
+	Adciona arquivo específico ao proximo commit
+
+git rm --cached nome_do_arquivo
+	Remove o arquivo ao proximo commit
+
+git commit -m "mensagem do commit"
+	Cria um novo commit com uma mensagem
+
+git commit --amend
+	altera mensagem criada de um ultimo commit para sair ESQ :wq
+
+git log
+	mostra o histórico de commit
+git log --oneline
+	mostra de forma condensada o histórico de commit
+
+git checkout id_do_commit
+	volta o projeto de onde estava naquele commit
+
+git checkout main
+	volta do ponto de origem
+
+git reset id_do_commit
+	volta tudo que fez des do começo do id_do_commit porem ainda contendo alteração a ser feitas com os status
+
+git reset id_do_commit --hard
+	volta tudo que fez des do começo do id_do_commit, perigo pois perde histório futuros feitos
+
+.gitignore
+	arquivo criado em projeto podendo incluir "arquivos.txt" ou "pastas/" para que o status ignore eles
+
+git push
+	Envia as atualizações para a nuvem na branch atual ativa
+
+git branch
+	Permite listar e ver qual branch está ativa
+
+git branch -d nome_da_branch
+	permite deletar uma branch, porem faz a verificação se há commits para merged
+
+git branch -D nome_da_branch
+	permite deletar uma branch, sem verificação
+
+git checkout nome_da_branch
+	Permite mudar para uma nova branch
+
+git checkout -b "nome da branche de origem" "nome da nova branch"
+	Permite mudar e criar uma nova branch com base em outra
+
+git merge "branch_alterada"
+	permite fazer um merge da branch_alterada para a branch que está ativa, deixar igual 
+
+git pull
+	Atualiza a branch atual ativa

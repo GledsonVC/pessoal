@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>CRUD Application</h1>
+    <form action="{{ url_for('add') }}" method="POST">
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="text" name="phone" placeholder="Telefone" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="query" placeholder="Buscar por nome">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for person in persons %}
+            <li>
+                {{ person.name }} - {{ person.phone }} - {{ person.email }}
+                <form action="{{ url_for('update') }}" method="POST" style="display: inline;">
+                    <input type="hidden" name="id" value="{{ person.id }}">
+                    <input type="text" name="name" value="{{ person.name }}" required>
+                    <input type="text" name="phone" value="{{ person.phone }}" required>
+                    <input type="email" name="email" value="{{ person.email }}" required>
+                    <button type="submit">Atualizar</button>
+                </form>
+                <form action="{{ url_for('delete', person_id=person.id) }}" method="POST" style="display: inline;">
+                    <button type="submit">Deletar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
