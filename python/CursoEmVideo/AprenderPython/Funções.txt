@@ -1,0 +1,77 @@
+# antes de conhecer função era assim
+print('-'*25)
+print('    CURSO EM VÍDEO    ')
+print('-'*25)
+print('-'*25)
+print('    APRENDA PYTHON    ')
+print('-'*25)
+print('-'*25)
+print('    Gledson Cavalheiro    ')
+print('-'*25)
+
+#########################################################
+# definindo função
+def lin():
+    print('-'*25)
+
+# programa principal
+lin()
+print('    CURSO EM VÍDEO    ')
+lin()
+lin()
+print('    APRENDA PYTHON    ')
+lin()
+lin()
+print('    Gledson Cavalheiro    ')
+lin()
+
+#########################################################
+# definindo função com parâmetros melhorando o prog acima
+def mensagem(msg):
+    print('-' * 25)
+    print(msg)
+    print('-' * 25)
+
+mensagem('    CURSO EM VÍDEO    ')
+mensagem('    APRENDA PYTHON    ')
+mensagem('    Gledson Cavalheiro    ')
+
+# todos irão apresentar
+# ------------------------------
+#     CURSO EM VÍDEO
+# ------------------------------
+# ------------------------------
+#     APRENDA PYTHON
+# ------------------------------
+# ------------------------------
+#     Gledson Cavalheiro
+# ------------------------------
+
+
+##########################################################
+# outro programa
+def soma(a, b):
+    print(f'A = {a} e B = {b}')
+    s = a + b
+    print(f'A soma de A + B = {s}')
+
+def somaMais(* valores):
+    s = 0
+    for num in valores:
+        s += num
+    print(f'Somando os valores {valores} temos {s}')
+
+
+soma(5, 2)
+soma(b=2, a=5)  # é a mesma coisa que o soma(5, 4) porem informando A e B invertido
+# retorno:
+# A = 5 e B = 2
+# A soma de A + B = 7
+# A = 5 e B = 2
+# A soma de A + B = 7
+
+somaMais(5,2)
+somaMais(5, 2, 3)
+# retorno:
+# Somando os valores (5, 2) temos 7
+# Somando os valores (5, 2, 3) temos 10

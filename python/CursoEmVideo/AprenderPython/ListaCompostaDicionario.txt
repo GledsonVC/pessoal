@@ -1,0 +1,118 @@
+Declarar dicionário
+dados = dict()
+dados = {}
+
+já incluindo dados na variavel dicionário
+dados = {'nome': 'Pedro', 'idade': 25}
+print(dados['nome']) 							# retorno será:  Pedro
+print(dados['idade']) 							# retorno será: 25
+dados['sexo'] = 'M' 							# vai adicionar o indice sexo na sequencia ficando assim o dicionario dados
+{'nome': 'Pedro', 'idade': 25, 'sexo':'M'}
+del dados['idade'] 								# irá deletar o indice idade
+{'nome': 'Pedro', 'sexo':'M'}
+
+
+Trabalhando com dicionários
+filme = {'titulo': 'Star Wars',
+	'ano': 1977
+	'diretor': 'George Lucas'	
+	}
+{'titulo': 'Star Wars',	'ano': 1977	'diretor': 'George Lucas'}
+print(filme.values())							# Retorna: 'titulo': ['Star Wars', 1977, 'George Lucas']
+print(filme.keys())								# Retorna: ['titulo', 'ano', 'diretor']
+print(filme.items())							# Retorna: [('titulo', 'Star Wars'), ('ano', 1977), ('diretor', 'George Lucas')]
+# for para mostrar a chave 'k' e o indice 'v':
+for k, v in filme.items():
+    print(f'O {k} é {v}')
+# retornará:
+	O titulo é Star Wars
+	O ano é 1977
+	O diretor é George Lucas
+
+##################################################################################
+Pratica:
+pessoas = {'nome': 'Gledson',
+           'sexo': 'M',
+           'idade': 37}
+print(pessoas)
+# {'nome': 'Gledson', 'sexo': 'M', 'idade': 37}
+print(pessoas['nome'])
+# Gledson
+print(f'O {pessoas["nome"]} tem {pessoas["idade"]} anos.')
+# O Gledson tem 37 anos.
+print(pessoas.keys())
+# dict_keys(['nome', 'sexo', 'idade'])
+print(pessoas.values())
+# dict_values(['Gledson', 'M', 37])
+print(pessoas.items())
+# dict_items([('nome', 'Gledson'), ('sexo', 'M'), ('idade', 37)])
+
+print()
+for k in pessoas.keys():
+    print(k)
+# nome
+# sexo
+# idade
+
+print()
+for v in pessoas.values():
+    print(v)
+# Gledson
+# M
+# 37
+
+print()
+for k, v in pessoas.items():
+    print(f'{k} = {v}')
+# nome = Gledson
+# sexo = M
+# idade = 37
+
+print()
+del pessoas['sexo']
+for k, v in pessoas.items():
+    print(f'{k} = {v}')
+# nome = Gledson
+# idade = 37
+
+print()
+pessoas['nome'] = 'Luan'
+for k, v in pessoas.items():
+    print(f'{k} = {v}')
+# nome = Luan
+# idade = 37
+
+print()
+pessoas['peso'] = 14
+for k, v in pessoas.items():
+    print(f'{k} = {v}')
+# nome = Luan
+# idade = 37
+# peso = 14
+
+#################################################################################################
+estado = dict()
+brasil = list()
+for c in range(0, 3):
+    estado['uf'] = str(input('Unidade Federativa: ')).strip().title()
+    estado['sigla'] = str(input('Sigla do Estado: ')).strip().upper()
+    brasil.append(estado.copy())
+for e in brasil:
+    for v in e.values():
+        print(v, end= ' ')
+    print()
+
+# primeiro for irá pedir 3 estados 
+Unidade Federativa: Acre
+Sigla do Estado: ac
+Unidade Federativa: para
+Sigla do Estado: pa
+Unidade Federativa: São paulo
+Sigla do Estado: sp
+
+# segundo for Irá mostrar
+Acre AC 
+Para PA 
+São Paulo SP 
+
+	

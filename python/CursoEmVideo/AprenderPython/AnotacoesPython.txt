@@ -1,0 +1,174 @@
+Ordem de precedencia
+como o python faz os calculos em sequencia
+01- ()
+02- **  sinal usado para exponenciação
+03- * / // %
+	// divisão inteira onde 5//2 ele irá mostrar o resultado apenas 2 e não como 2.5 como na divisão
+	%  resto da divisão onde 5%2 ele irá mostrar o resultado 1
+04- + - 
+
+Utilizando módulos
+import bebida
+isso irá trazer todas as bebidas na biblioteca bebida
+from bebida import café
+isso irá trazer apenas o café da biblioteca bebida
+
+Biblioteca math
+funcionalidade:
+ceil		= serve para arrendondar para cima
+floor 		= serve para arrendondar para baixo
+trunc		= não arredonda nada e elimina da , para frente
+pow 		= potencia, semelhante a **
+sqrt 		= calcular raiz quadrada
+factorial	= calcular fatorial
+
+import math 
+	terá todas as funcionalidades acima
+	math.sqrt(variavel)
+from math import sqrt
+	terá apenas a funcionalidade da raiz quadrada
+	sqrt(variavel)
+	
+OBS: 
+	para comentár várias coisas coloque 3 aspas e no final do comentário mais 3 aspas, ex:
+	
+	''' Estou comentando isso '''
+
+Tratar cadeia de caracteres:
+Tratamendo de manipulação de textos
+
+frase = 'Curso em Vídeo Python'
+
+Curso em Vídeo Python
+012345678901234567890
+          1         2
+
+Fatiamento:
+	frase[9]
+		V
+	
+	frase[9:13]
+		Víde
+	frase[9:21]
+		Vídeo Python
+	frase[9:21:2]
+		VdoPto
+	frase[:5]
+		Curso
+	frase[15:]
+		Python
+	frase[9::3]
+		VePh
+Análise:
+	len(frase) # lê o tamanho da string
+	=21
+	frase.count('o') # conta a quantidade de 'o' na string
+	=3
+	frase.count('o', 0, 13) # conta da posição [0:13] quantos 'o' tem na string
+	=1
+	frase.find('deo')# indica a posição que começou o na string 'deo'
+	=[11]
+	frase.find('Android') # quando não encontra na string ele retorna -1
+	=-1
+	'Curso' in frase # procura se existe 'Curso' na frase, e retorna True ou False caso não tenha
+	=True
+
+Transformação:
+OBS:# Não substitui nada na variavel frase, a não ser que force com atribuições 
+	frase.replace('Python','Android') # se mandar mostrar irá aparecer
+		='Curso em Vídeo Android' 
+	frase.upper() # se mandar mostrar irá aparecer tudo em maiúsculos
+		='CURSO EM VÍDEO PYTHON'	
+	frase.lower() # se mandar mostrar irá aparecer tudo em minúsculo
+		='curso em vídeo python'
+	frase.capitalize() # se mandar mostrar irá aparecer deixando tudo em mínusculo exceto a primeira letra da string
+		='Curso em vídeo python'
+	frase.title() # se mandar mostrar irá colocar todas primeira letra das palavras em maíusculo analisando sempre onde tem espaço
+		='Curso Em Vídeo Python'
+#trocando a strint nesse exemplo
+frase = '   Aprenda Python  '
+   Aprenda Python   
+0123456789012345678
+          1        
+	frase.strip() # se mandar mostrar irá remover o espaços do inicio e fim da string
+				  # ao declarar uma variavel em string pode já utilizar esa função ex: 
+				  # s = str(input('Digite um string com espaço no começo e fim')).strip()
+		='Aprenda Python'
+	frase.rstrip() # se mandar mostrar irá remover espaço só da r=direita, dica serve para outras funções tbm
+		='   Aprenda Python' # na esquerda mantem os espaços 
+	frase.lstrip() # se mandar mostrar irá remover espaço só da l=direita, dica serve para outras funções tbm
+		='Aprenda Python  ' # na direita mantem os espaços
+	
+Divisão:
+obs: este continua com a frase = 'Curso em Vídeo Python
+	frase.split() # vai ocorrer uma divisão na frase
+		=['Curson','em','Vídeo','Python']
+nova ordem'012345','01','01234','012345'
+palavra	     0       1     2        3
+
+Junção:
+	'-'.join(frase) # irá juntar a lista, se mandar mostrar
+		='Curso-em-Vídeo-Python'
+		  012345601234560123456
+
+outros:
+Print('''eu quero escrever um testo bem longo 
+que não cabe ai eu uso três aspas ou dupla aspas''')
+
+Condições em Python if..else
+tempo = int(input('Quantos anos tem seu carro?'))
+if tempo <= 3:
+	print('Carro novo')
+else:
+	print('Carro velho)
+print('--Fim--')
+
+ou para comandos simples pode ser feito o mesmo código dessa maneira
+tempo = int(input('Quantos anos tem seu carro?'))
+print('Carro novo' if tempo <= 3 else 'Carro velho')
+print('--Fim--')
+
+
+Cores em terminais:
+OBS: segue o código ansi
+\033[Style;text;backm no python será assim ex:
+	print('\033[0;33;44mOlha a cor como ficou a cor')
+	
+biblioteca: 
+style						text				back
+0 none = nada				30 = branco			40 = branco
+1 bone = negrito			31 = vermelho		41 = vermelho
+4 underline = sublinhado	32 = verde			42 = verde
+7 negative = inverter		33 = amarelo		43 = amarelo
+							34 = azul			44 = azul
+							35 = roxo			45 = roxo
+							36 = verde piscina	46 = verde piscina
+							37 = cinza			47 = cinza
+
+OBS:
+para faser dois print e não quer que pule linha faça o seguinte comando no format do primeiro print
+print('Olhe não irá pular linha ', end='')
+print('com dois print')
+
+OBS:
+para centralizar uma escrita faça um print da seguinte maneira
+print('{:^40}'.format('GLEDSON')? #irá dar 40 espaços centralizando a palavra GLEDSON incluindo como caracter
+                GLEDSON                 
+print('{:=^40}'.format(' GLEDSON ')) #o mesmo que o de cima porem irá colocar assim com este ====
+=============== GLEDSON ================
+OBS:
+print com fstring assim não é necessário o .format
+a = 'Gledson'
+b = 10
+print(f'{a} é {b}.')
+resultado
+Gledson é 10.
+
+
+OBS:
+print com casa decimais usado para valores
+no exemplo vou colocar com 10 casas decimais mais 2 decimos
+print(f'O total da compra foi {total:.10.2f}')
+isso fara com que fique em um exemplo 999999999.99 de valor maximo
+
+

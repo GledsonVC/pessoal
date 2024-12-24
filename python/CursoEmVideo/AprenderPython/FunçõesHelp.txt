@@ -1,0 +1,95 @@
+interactive help
+fução help para mostrar uma documentação do que deseja, ex do print
+help(print)
+
+doc interno dentro de um comando ao qual dá para imprimir ex input
+print(input.__doc__)
+
+#########################################################################
+#fazendo sua documentação
+def contador(i, f, p):
+    """
+    ->Faz uma contagem  e mostra na tela.
+    :param i: inicio da contagem
+    :param f: fim da contagem
+    :param p: passo da contagem
+    :return: sem retorno
+    Função criada por GledsonVC
+    """
+    c = i
+    while c <= f:
+        print(f'{c} ', end='')
+        c += p
+    print('Fim!')
+
+
+help(contador)
+retorna:
+contador(i, f, p)
+    ->Faz uma contagem  e mostra na tela.
+    :param i: inicio da contagem
+    :param f: fim da contagem
+    :param p: passo da contagem
+    :return: sem retorno
+    Função criada por GledsonVC
+	
+contador(1, 10, 1)
+retrona:
+1 2 3 4 5 6 7 8 9 10 Fim!
+###########################################################################
+
+# Parametros opcionais
+def soma(a=0, b=0, c=0): # nesse caso não informando a, b ou c ele atribui 0 pois é opcional
+    s= a+b+c
+    print(f'A soma vale {s}')
+
+
+soma(3, 2, 5)
+soma(8, 4) 		# aqui não está sendo informado o 'c' por exemplo
+soma(b=4, c=2) 	# aqui não informei o valor para 'a'
+soma() 			# aqui não informei nem a nem b nem c
+
+retorno:
+A soma vale 10
+A soma vale 12
+A soma vale 6
+A soma vale 0
+############################################################################
+
+# Escopo de variável
+def funcao():
+    n1 = 4      # Variavel local dentro da def
+    global n2   # Aqui está usando o mesmo espaço da variavel de fora logo atribuindo valor a global
+    n2 = 4
+    print(f'n1 dentro vale {n1} e n2 vale {n2}')
+
+
+n1 = 2    # Variavel global
+n2 = 2
+print(f'n1 fora vale{n1} e n2 vale {n2}')
+funcao()
+print(f'Depois da função n2 fora agora é {n2}')
+
+retorno:
+n1 fora vale2 e n2 vale 2
+n1 dentro vale 4 e n2 vale 4
+Depois da função n2 fora agora é 4
+################################################################################
+
+# Retorno de valores
+def soma(a=0, b=0, c=0):
+    s = a+b+c
+    return s
+
+
+print(soma(3, 2, 5)) # retorna 10
+
+resp = soma(3, 2, 5)
+print(resp)         # retorna 10
+
+r1 = soma(3, 2, 5)
+r2 = soma(1, 7)
+r3 = soma(4)
+print(f'Meus calculos deram {r1}, {r2} e {r3}.')
+# retorna 
+# Meus calculos deram 10, 8 e 4.

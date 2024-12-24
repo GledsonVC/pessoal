@@ -1,0 +1,39 @@
+Tupla
+lanche = ('Hambúrguer', 'Suco', 'Pizza', 'Pudim')
+print(lanche)
+print(lanche[1])
+print(lanche[-3])
+print(lanche[1:3])
+print(lanche[2:])
+print(lanche[:2])
+# Tuplas são imutáveis ex
+# lanche[1] = 'Refrigerante'
+# obs:erro
+# TypeError: 'tuple' object does not support item assignment
+
+
+ordem é sorted(tupla)
+
+
+for cont in range(0, len(lanche)):
+    print(f'Eu vou comer {lanche[cont]} na posição {cont}')
+
+
+for cont, comida in enumerate(lanche):  # cont, para fazer contagem junto a enumerate
+    print(f'Eu vou comer {comida} na posição {cont}')
+	
+a = (2, 5, 4)
+b = (5, 8, 1, 2)
+c = a + b
+print(c)
+print(sorted(c))
+Mostra: 
+(2, 5, 4, 5, 8, 1, 2)
+[1, 2, 2, 4, 5, 5, 8] 
+
+Tuplas são deletaveis mas não imutáveis
+pessoa = ('Gledson', 36, 'M', 90.10)
+print(pessoa)
+del(pessoa)
+pessoa = ('Ellen', 31, 'F', 87.0)
+print(pessoa)

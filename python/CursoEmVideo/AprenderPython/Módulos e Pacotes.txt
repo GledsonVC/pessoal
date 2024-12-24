@@ -1,0 +1,62 @@
+# Modularização = dividir problemas grandes so qual divide cada um em cada módulos
+# Arquivo uteis.py
+def fatorial(num):
+    f = 1
+    for c in range(1, num+1):
+        f *= c
+    return f
+
+def dobro(num):
+    return num * 2
+
+def triplo(num):
+    return num * 3
+
+
+# Arquivo programa.py		
+import uteis
+from uteis import triplo  	# pode importar assim tem conforme já estudamos, não é tão recomendado, 
+							# por se tratar de dois tipos igual de triplo já havendo em outra biblioteca
+							# apesar de o pyton pegar sempre da primeira biblioteca
+
+n = int(input('Digite um valor: '))
+fat = uteis.fatorial(n)
+print(f'O fatorial de {n} é {fat}')
+print(f'O dobro de {n} é {uteis.dobro(n)}')
+print(f'O triplo de {n} é {uteis.triplo(n)}')
+print(f'O triplo de {n} é {triplo(n)}')  # Tambem pode ser usado dessa maneira depois do from
+
+################################################################################################################################
+# Pacotes  = pasta de Modularização, exemplo pacote uteis com uma arquivo 
+# mesmo programa acima agora com pacotes do pyton, que para criar basta:
+# no pyCharme, clica com direito em project> new> New Packege, e coloca o nome, no meu caso 'uteis'
+# dentro do packege uteis posso colocar outros new Packege, como no caso anterior vou colocar dentro de um módulo com nome numeros, strings e datas
+# dentro de cada packege ele irá criar um arquivo __init__.py no meu caso do programa anterior da biblioteca uteis vou colar demtrp de numeros no arquivo
+# dentro dele __init__.py
+# o programa de uteis anterior
+def fatorial(num):
+    f = 1
+    for c in range(1, num+1):
+        f *= c
+    return f
+
+def dobro(num):
+    return num * 2
+
+def triplo(num):
+    return num * 3
+
+
+
+# e meu programa principal fica asssim
+# Arquivo programa.py
+import uteis
+from uteis import numeros
+
+n = int(input('Digite um valor: '))
+fat = uteis.numeros.fatorial(n)
+print(f'O fatorial de {n} é {fat}')
+print(f'O dobro de {n} é {uteis.numeros.dobro(n)}')
+print(f'O triplo de {n} é {uteis.numeros.triplo(n)}')
+print(f'O triplo de {n} é {numeros.triplo(n)}')     # Tambem pode ser usado dessa forma se
+                                                    # importar com from de uteis do pacote numero
