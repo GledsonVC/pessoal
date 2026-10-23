@@ -1,103 +1,121 @@
+/* Configurações para centralizar a bandeira na janela do navegador */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: flex; /* Ativa o modelo Flexbox para alinhar elementos filhos */
+    justify-content: center; /* Centraliza a bandeira horizontalmente na tela */
+    align-items: center; /* Centraliza a bandeira verticalmente na tela */
+    height: 100vh; /* Define a altura total do body como 100% da altura da tela visual (Viewport Height) */
 }
 
+/* O retângulo verde base */
 .bandeira_brasil {
-    position: relative;
-    background-color: green;
-    width: 250px;
-    height: 150px;
+    position: relative; /* Define posicionamento relativo para servir de ponto de referência aos elementos absolutos de dentro */
+    background-color: green; /* Aplica a cor de fundo verde */
+    width: 250px; /* Define a largura total da bandeira em 250 pixels */
+    height: 150px; /* Define a altura total da bandeira em 150 pixels */
 }
 
+/* Regra conjunta para posicionar os pseudo-elementos do losango */
 .bandeira_brasil .losangulo::before,
 .bandeira_brasil .losangulo::after {
-    position: absolute;
+    position: absolute; /* Retira os elementos do fluxo comum e os fixa conforme coordenadas estipuladas */
 }
 
+/* Contêiner invisível do losango */
 .bandeira_brasil .losangulo {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%; /* Ocupa 100% da largura da div pai (.bandeira_brasil) */
+    height: 100%; /* Ocupa 100% da altura da div pai (.bandeira_brasil) */
+    top: 0; /* Alinha no topo limite do contêiner verde */
+    bottom: 0; /* Alinha na base limite do contêiner verde */
+    left: 0; /* Alinha à esquerda limite do contêiner verde */
+    right: 0; /* Alinha à direita limite do contêiner verde */
 }
 
+/* Regra para preparar os triângulos amarelo superior e inferior */
 .bandeira_brasil .losangulo::before,
 .bandeira_brasil .losangulo::after {
-    content: '';
-    width: 0;
-    height: 0;
-    left: 20px;
-    right: 20px;
+    content: ""; /* Elemento obrigatório para fazer pseudo-elementos (::before/::after) aparecerem na tela */
+    width: 0; /* Define a largura real como 0 para que a forma seja moldada apenas pelas bordas */
+    height: 0; /* Define a altura real como 0 para que a forma seja moldada apenas pelas bordas */
+    left: 20px; /* Recua o início horizontal em 20 pixels da esquerda da bandeira */
+    right: 20px; /* Recua o fim horizontal em 20 pixels da direita da bandeira */
 }
 
+/* Parte superior do losango (Triângulo apontando para cima) */
 .bandeira_brasil .losangulo::before {
-    border-left: 105px solid transparent;
-    border-right: 105px solid transparent;
-    border-bottom: 65px solid yellow;
-    top: 10px;
+    border-left: 105px solid transparent; /* Cria uma rampa transparente de 105px na lateral esquerda do triângulo */
+    border-right: 105px solid transparent; /* Cria uma rampa transparente de 105px na lateral direita do triângulo */
+    border-bottom: 65px solid yellow; /* Preenche a base do triângulo com 65px de altura na cor amarela */
+    top: 10px; /* Posiciona o topo do losango a 10 pixels de distância da borda verde superior */
 }
 
+/* Parte inferior do losango (Triângulo invertido apontando para baixo) */
 .bandeira_brasil .losangulo::after {
-    border-left: 105px solid transparent;
-    border-right: 105px solid transparent;
-    border-top: 65px solid yellow;
-    bottom: 10px;
+    border-left: 105px solid transparent; /* Cria uma rampa transparente de 105px na lateral esquerda do triângulo inferior */
+    border-right: 105px solid transparent; /* Cria uma rampa transparente de 105px na lateral direita do triângulo inferior */
+    border-top: 65px solid yellow; /* Preenche o topo do triângulo invertido com 65px de altura na cor amarela */
+    bottom: 10px; /* Posiciona a ponta de baixo a 10 pixels de distância da borda verde inferior */
 }
 
+/* O círculo azul */
 .bandeira_brasil .circulo {
-    overflow: hidden;
-    z-index: 2;
-    display: block;
-    background-color: blue;
-    height: 80px;
-    width: 80px;
-    margin-left: -40px;
-    margin-top: -40px;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border-radius: 50%;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
+    overflow: hidden; /* Corta as rebarbas das elipses internas para que a faixa branca não saia para fora do círculo azul */
+    z-index: 2; /* Garante que o círculo fique em uma camada acima do losango amarelo */
+    display: block; /* Força o elemento a se comportar como um bloco estrutural */
+    background-color: blue; /* Aplica a cor de fundo azul */
+    height: 80px; /* Define a altura total do círculo em 80 pixels */
+    width: 80px; /* Define a largura total do círculo em 80 pixels (mesmo tamanho para ser uma esfera perfeita) */
+    margin-left: -40px; /* Puxa metade do próprio tamanho para trás para corrigir o alinhamento horizontal */
+    margin-top: -40px; /* Puxa metade do próprio tamanho para cima para corrigir o alinhamento vertical */
+    top: 50%; /* Joga o ponto inicial superior exatamente no meio (50%) da div pai */
+    left: 50%; /* Joga o ponto inicial esquerdo exatamente no meio (50%) da div pai */
+    position: absolute; /* Habilita o uso das coordenadas top/left e margens de correção */
+    border-radius: 50%; /* Arredonda os cantos em 50% para transformar o quadrado em círculo */
+    -webkit-border-radius: 50px; /* Propriedade de compatibilidade antiga para navegadores baseados em Webkit (Safari/Chrome antigos) */
+    -moz-border-radius: 50px; /* Propriedade de compatibilidade antiga para navegadores baseados em Gecko (Firefox antigo) */
 }
 
+/* Regra conjunta de posicionamento para o círculo e suas camadas internas (faixa branca) */
 .bandeira_brasil .circulo,
 .bandeira_brasil .circulo::before,
 .bandeira_brasil .circulo::after {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+    top: 50%; /* Centraliza o ponto âncora verticalmente em 50% */
+    left: 50%; /* Centraliza o ponto âncora horizontalmente em 50% */
+    position: absolute; /* Define posicionamento absoluto para sobreposição perfeita das camadas */
+    border-radius: 50%; /* Garante formato circular ou elíptico para todas as camadas */
+    -webkit-border-radius: 50%; /* Compatibilidade de arredondamento para navegadores Webkit antigos */
+    -moz-border-radius: 50%; /* Compatibilidade de arredondamento para navegadores Firefox antigos */
 }
 
+/* Configurações da curvatura e rotação da faixa branca */
 .bandeira_brasil .circulo::before,
 .bandeira_brasil .circulo::after {
-    width: 90px;
-    height: 90px;
-    -ms-transform: rotate(14deg);
-    -webkit-transform: rotate(14deg);
-    transform: rotate(14deg);
+    width: 90px; /* Define uma largura de 90px (maior que o círculo azul) para criar uma curvatura mais suave */
+    height: 90px; /* Define uma altura de 90px para manter a proporção da elipse */
+    -ms-transform: rotate(
+        14deg
+    ); /* Rotaciona a faixa em 14 graus para navegadores Internet Explorer antigos */
+    -webkit-transform: rotate(
+        14deg
+    ); /* Rotaciona a faixa em 14 graus para navegadores Safari/Chrome antigos */
+    transform: rotate(
+        14deg
+    ); /* Rotaciona a elipse em 14 graus no sentido horário para inclinar a faixa */
 }
 
+/* Camada da Faixa Branca (Base de fundo da curvatura) */
 .bandeira_brasil .circulo::before {
-    z-index: 3;
-    content: '';
-    margin-top: -20px;
-    margin-left: -45px;
-    background-color: white;
+    z-index: 3; /* Fica acima do círculo azul (camada 2), exibindo a cor branca */
+    content: ""; /* Torna o pseudo-elemento ativo */
+    margin-top: -20px; /* Ajusta o posicionamento vertical da faixa branca para cima */
+    margin-left: -45px; /* Ajusta horizontalmente metade da largura (90px / 2) para centralizar */
+    background-color: white; /* Define a cor branca da faixa */
 }
 
+/* Camada de Mascaramento Azul (Corta a faixa branca por baixo) */
 .bandeira_brasil .circulo::after {
-    z-index: 4;
-    content: '';
-    margin-top: -10px;
-    margin-left: -45px;
-    background-color: blue;
+    z-index: 4; /* Fica acima da faixa branca (camada 3) para cobrir a maior parte dela com azul, deixando apenas um filete branco visível */
+    content: ""; /* Torna o pseudo-elemento ativo */
+    margin-top: -10px; /* Desloca o círculo azul ligeiramente para baixo em relação ao branco, revelando a borda superior branca */
+    margin-left: -45px; /* Ajusta horizontalmente metade da largura (90px / 2) para centralizar */
+    background-color: blue; /* Pinta de azul para camuflar e fundir com o fundo do círculo */
 }
