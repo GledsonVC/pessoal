@@ -15,4 +15,3 @@ while True:
     print(f'    {dado}')
     print('-'*25)
 print('FIM...')
-
